@@ -2,10 +2,10 @@
 #curlshort 
 URL=$1
 curl=`curl -I $URL 2>/dev/null | head -n 1`
-location=`curl -I $URL 2>/dev/null | head -n 5`
+redirect=`curl -I -Ls -o /dev/null -w %{url_effective} $URL`
 if  [[ `echo $curl | grep -E 301\|302` ]]; 
 then 
-    echo $location
+  echo $redirect
 else 
-    echo $curl
+   echo $curl
 fi
