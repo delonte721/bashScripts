@@ -12,7 +12,7 @@ chain=`curl --head --silent --location --output /dev/null --write-out "It took %
    else 
       echo $curl
    fi
-#the while to follow the redirect/ show all of the redirects
+#the while loop follows the redirect/ show all of the redirects
     while [ -n "${URL}" ]
 do
     echo $URL
