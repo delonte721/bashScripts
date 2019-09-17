@@ -22,14 +22,14 @@ do
     URL=$(curl -sw "\n\n%{redirect_url}" "${URL}" | tail -n 1)
 done
 #when you add the string trace it will show you the write out of how many redirects it took to get to the final destination, name of the redirection server, and its IP(s)
-#if Name of server does not show will oupt at the bottom of its IP(s) 
+#if Name of server does not show 
 if [[ $2 == *"trace"* ]]; 
    then
       echo $chain 
       echo $origin 
+      echo "$IP"
    if [[ -z "$origin" ]];
    then
       echo $origin2
-      echo "$IP"
    fi
 fi
