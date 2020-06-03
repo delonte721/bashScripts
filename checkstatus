@@ -1,7 +1,7 @@
 #!/bin/bash
 #checkstatus  
 #This script will show you the HTTP status code and the last destination of the redirect. With trace it will show/tell you the number of redirects it took to get to the last destination.The name and IP of the redirection server. It will also show if it is HTTP/S to HTTP/S redirection
-
+#Use the script in terminal checkstatus <domain> / checkstatus <domain> trace
 
 URL=$1
 curl=`curl -I $URL 2>/dev/null | head -n 1`
