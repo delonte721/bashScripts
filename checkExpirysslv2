@@ -1,0 +1,27 @@
+#!/bin/bash
+#checkssl
+if [ $# -lt 1 ]; then
+	echo ""
+	echo "This script will verify and show the URL's SSL cert information"
+	echo "--- Incorrect Syntax ----"
+	echo "Usage: $0 <URL>"
+	echo "Example: $0 https://constellix.com"
+	echo ""
+	exit
+fi
+
+URL=$1
+info=`curl -vIs -D - $URL 2>&1`
+host=`echo "$info" | grep Host | head -n 1 | tr -d '>'`
+start=`echo "$info" | grep start | tr -d '*'`
+expire=`echo "$info" | grep expire | head -n 1 | tr -d '*'` 
+server_cert=`echo "$info" | grep cert | tr -d '*' | tail -n 3`
+subject=`echo "$info" | grep subject | tr -d '*'| head -n 1`
+issuer=`echo "$info" | grep issuer | tr -d '*'`
+
+echo $host
+echo $start
+echo $expire
+echo $server_cert
+echo $subject
+echo $issuer

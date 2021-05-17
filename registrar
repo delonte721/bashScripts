@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#This script allows you to find the registrar for a specified domain
+
+domain=$1
+whois $domain | grep 'Registrar URL' | head -n 1 | awk '{print $3}'
