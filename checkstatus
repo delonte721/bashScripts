@@ -44,7 +44,7 @@ fi
 if [ -f $1 ]; then
 	for x in `grep -v ^ $1 | awk '{print $1}'`; do
 		echo "redirect/s for $x"
-		redirect_url=`curl --head --silent --location --output /dev/null --write-out "It took %{num_redirects} redirect/redirects to get %{url_effective}\n" $x
+		redirect_url=`curl $x --head --silent --location --output /dev/null --write-out "It took %{num_redirects} redirect/redirects to get %{url_effective}\n"
 		if [[ $redirect_url ]]; then
 			echo "$redirect_url"
 			echo ""
