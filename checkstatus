@@ -41,6 +41,19 @@ if [[ $2 == *"trace"* ]];
    fi
 fi
 
+if [ -f $1 ]; then
+	for x in `grep -v ^ $1 | awk '{print $1}'`; do
+		echo "redirect/s for $x"
+		redirect_url=`curl --head --silent --location --output /dev/null --write-out "It took %{num_redirects} redirect/redirects to get %{url_effective}\n" $x
+		if [[ $redirect_url ]]; then
+			echo "$redirect_url"
+			echo ""
+		else
+			echo "None"
+			echo ""
+	fi
+	done
+
 if [ $# -lt 1 ]; then
 	echo ""
 	echo "This script will show you the HTTP status code and the last destination of the redirect. With trace it will show/tell you the number of redirects it took to get to the last destination.The name and IP of the redirection server. It will also show if it is HTTP/S to HTTP/S redirection"
