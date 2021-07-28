@@ -64,4 +64,3 @@ if [ $# -lt 1 ]; then
 	echo ""
 	exit
 fi
-done
