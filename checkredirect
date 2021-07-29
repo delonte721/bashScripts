@@ -45,7 +45,6 @@ getRedirect() {
      	fi
     fi
 
-
 trace=$2
 if [ -f $1 ]; then
     file=$1
