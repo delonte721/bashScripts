@@ -1,5 +1,5 @@
 #!/bin/bash
-
+​
 if [ $# -lt 1 ]; then
     echo ""
     echo "This script will show you the HTTP status code and the last destination of the redirect. With trace it will show/tell you the number of redirects it took to get to the last destination.The name and IP of the redirection server. It will also show if it is HTTP/S to HTTP/S redirection"
@@ -10,9 +10,9 @@ if [ $# -lt 1 ]; then
     echo ""
     exit
 fi
-
+​
 getRedirect() {
-	curl=`curl -I $URL 2>/dev/null | head -n 1`
+    curl=`curl -I $URL 2>/dev/null | head -n 1`
     redirect=`curl -I -Ls -o /dev/null -w %{url_effective} $URL`
     location=`curl -I $redirect 2>/dev/null | head -n 1`
     chain=`curl --head --silent --location --output /dev/null --write-out "It took %{num_redirects} redirect/redirects to get %{url_effective}\n" $URL`
@@ -32,16 +32,23 @@ getRedirect() {
     done
     #when you add the string trace it will show you the write out of how many redirects it took to get to the final destination, name of the redirection server, and its IP(s)
     #if Name of server does not show 
-	if [[ $trace == *"trace"* ]]; then
-        if [[ $file ]] ;then 
-			echo $chain
-		else 
-			echo $chain 
-       		echo $origin 
-        	echo "$IP"
-		fi
-    	if [[ -z "$origin" ]]; then
-       		echo $origin2
-     	fi
+    if [[ $2 == *"trace"* ]]; then
+          echo $chain 
+          echo $origin 
+          echo "$IP"
+       if [[ -z "$origin" ]]; then
+          echo $origin2
+       fi
     fi
 }
+​
+if [ -f $1 ]; then
+    while $URL; do
+        echo "redirect/s for $URL"
+        getRedirect
+        echo
+    done < $1
+else
+    URL=$1
+    getRedirect
+fi
