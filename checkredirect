@@ -1,4 +1,5 @@
 #!/bin/bash
+​
 if [ $# -lt 1 ]; then
     echo ""
     echo "This script will show you the HTTP status code and the last destination of the redirect. With trace it will show/tell you the number of redirects it took to get to the last destination.The name and IP of the redirection server. It will also show if it is HTTP/S to HTTP/S redirection"
@@ -9,6 +10,7 @@ if [ $# -lt 1 ]; then
     echo ""
     exit
 fi
+​
 getRedirect() {
     curl=`curl -I $URL 2>/dev/null | head -n 1`
     redirect=`curl -I -Ls -o /dev/null -w %{url_effective} $URL`
@@ -39,12 +41,13 @@ getRedirect() {
        fi
     fi
 }
+​
 if [ -f $1 ]; then
-    while read URL; do
+    for URL in `grep -v ^# $1 | awk '{print $1}'`; do
         echo "redirect/s for $URL"
         getRedirect
         echo
-    done < $1
+    done
 else
     URL=$1
     getRedirect
