@@ -44,16 +44,4 @@ getRedirect() {
        		echo $origin2
      	fi
     fi
-
-trace=$2
-if [ -f $1 ]; then
-    file=$1
-	while read URL; do
-        echo "redirect/s for $URL"
-        getRedirect
-    done < $1
-	else
-    URL=$1
-    getRedirect
-fi
 }
