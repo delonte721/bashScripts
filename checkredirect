@@ -56,3 +56,4 @@ if [ -f $1 ]; then
     URL=$1
     getRedirect
 fi
+}
