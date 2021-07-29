@@ -51,7 +51,6 @@ if [ -f $1 ]; then
 	while read URL; do
         echo "redirect/s for $URL"
         getRedirect
-        echo
     done < $1
 	else
     URL=$1
