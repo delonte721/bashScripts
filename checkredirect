@@ -1,11 +1,14 @@
 #!/bin/bash
 if [ $# -lt 1 ]; then
     echo ""
-    echo "This script will show you the HTTP status code and the last destination of the redirect. With trace it will show/tell you the number of redirects it took to get to the last destination.The name and IP of the redirection server. It will also show if it is HTTP/S to HTTP/S redirection"
+    echo "This script will show you the HTTP status code and the last destination of the redirect(single FQDN or a list of FQDNs). With trace it will show/tell you the number of redirects it took to get to the last destination.The name and IP of the redirection server. It will also show if it is HTTP/S to HTTP/S redirection"
     echo "--- Incorrect Syntax ----"
+	echo "Single FQDN"
     echo "Usage: checkredirect <domain> / checkredirect <domain> trace"
     echo "Example: checkredirect constellix.com"
-    echo "Example: checkredirect constellix.com trace" 
+    echo "Example: checkredirect constellix.com trace"
+	echo "File List of FQDNs"
+	echo "Usage: checkredirect <file_name> / checkredirect <file_name> trace"
     echo ""
     exit
 fi
