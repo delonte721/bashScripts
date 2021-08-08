@@ -26,3 +26,5 @@ echo $server_cert
 echo $subject
 echo $issuer
 }
+
+URL getSSLcert
