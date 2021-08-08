@@ -26,7 +26,6 @@ getSSLcert() {
 				echo $start
 				echo $expire
 			fi
-		fi
 		else	
 			echo $host
 			echo $start
