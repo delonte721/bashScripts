@@ -24,16 +24,15 @@ getSSLcert() {
 	echo $server_cert
 	echo $subject
 	echo $issuer
-	
-	if [ -f $1 ]; then
-    	file=$1
-    	while read URL; do
+}
+if [ -f $1 ]; then
+    file=$1
+    while read URL; do
         echo "expiration for $URL"
         getSSLcert
         echo
-    	done < $1
-		else
-    	URL=$1
-    	getSSLcert
-	fi
-}
+    done < $1
+else
+    URL=$1
+    getSSLcert
+fi
