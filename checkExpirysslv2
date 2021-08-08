@@ -33,14 +33,6 @@ getSSLcert() {
 			echo $expire	
 		fi
 	fi
-
-	if [[ $dates == *"dates"* ]]; then
-        if [[ ! -z "$file" ]]; then
-            echo $host
-			echo $start
-			echo $expire
-		fi
-	fi
 }
 dates=$2
 if [ -f $1 ]; then
