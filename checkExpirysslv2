@@ -33,8 +33,6 @@ getSSLcert() {
 			echo $issuer
 		fi
 	fi
-
-	
 }
 dates=$2
 if [ -f $1 ]; then
