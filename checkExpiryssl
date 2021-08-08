@@ -2,7 +2,7 @@
 #checkssl
 if [ $# -lt 1 ]; then
 	echo ""
-	echo "This script will verify and show the URL's SSL cert information"
+	echo "This script will verify and show the URL's SSL cert information. Adding dates will only show the host, start, and expire dates of SSL cert"
 	echo "--- Incorrect Syntax ----"
 	echo "Single FQDN"
     echo "Usage: checkExpiryssl <domain> / checkExpiryssl <domain> dates"
@@ -10,6 +10,8 @@ if [ $# -lt 1 ]; then
     echo "Example: checkExpiryssl constellix.com dates"
 	echo "File List of FQDNs"
 	echo "Usage: checkExpiryssl <file_name> / checkExpiryssl <file_name> dates"
+	echo "Example: checkExpiryssl testsslexpire.txt"
+	echo "Example: checkExpiryssl testsslexpire.txt dates"
 	echo ""
 	exit
 fi
