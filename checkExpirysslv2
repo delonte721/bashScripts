@@ -10,14 +10,14 @@ if [ $# -lt 1 ]; then
 	exit
 fi
 getSSLcert() {
-	location=`curl -I -Ls -o /dev/null -w %{url_effective} $URL`
-	info=`curl -vIs -D - $location 2>&1`
-	host=`echo "$info" | grep Host | head -n 1 | tr -d '>'`
-	start=`echo "$info" | grep start | tr -d '*'`
-	expire=`echo "$info" | grep expire | head -n 1 | tr -d '*'` 
-	server_cert=`echo "$info" | grep cert | tr -d '*' | tail -n 3`
-	subject=`echo "$info" | grep subject | tr -d '*'| head -n 1`
-	issuer=`echo "$info" | grep issuer | tr -d '*'`	
+		location=`curl -I -Ls -o /dev/null -w %{url_effective} $URL`
+		info=`curl -vIs -D - $location 2>&1`
+		host=`echo "$info" | grep Host | head -n 1 | tr -d '>'`
+		start=`echo "$info" | grep start | tr -d '*'`
+		expire=`echo "$info" | grep expire | head -n 1 | tr -d '*'` 
+		server_cert=`echo "$info" | grep cert | tr -d '*' | tail -n 3`
+		subject=`echo "$info" | grep subject | tr -d '*'| head -n 1`
+		issuer=`echo "$info" | grep issuer | tr -d '*'`	
 
 		echo $host
 		echo $start
@@ -25,19 +25,11 @@ getSSLcert() {
 		echo $server_cert
 		echo $subject
 		echo $issuer	
-	
 	if [[ $dates == *"dates"* ]]; then
         if [[ ! -z "$file" ]]; then	
 			echo $host
 			echo $start
 			echo $expire
-		else
-			echo $host
-			echo $start
-			echo $expire
-			echo $server_cert
-			echo $subject
-			echo $issuer
 		fi
 	fi
 }
