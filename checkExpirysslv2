@@ -26,13 +26,15 @@ getSSLcert() {
 				echo $start
 				echo $expire
 			fi
+		fi
+		else	
+			echo $host
+			echo $start
+			echo $expire
+			echo $server_cert
+			echo $subject
+			echo $issuer
 		fi	
-		echo $host
-		echo $start
-		echo $expire
-		echo $server_cert
-		echo $subject
-		echo $issuer	
 	fi
 
 	if [[ $dates == *"dates"* ]]; then
