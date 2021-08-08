@@ -20,7 +20,7 @@ getSSLcert() {
 	issuer=`echo "$info" | grep issuer | tr -d '*'`
 	
 	if [[ $dates == *"dates"* ]]; then
-        if [[ ! -z "$1" ]]; then
+        if [[ ! -z "$2" ]]; then
            	echo $host
 			echo $start
 			echo $expire
