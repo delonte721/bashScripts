@@ -42,7 +42,4 @@ if [ -f $1 ]; then
 		echo $start
 		echo $expire
     done < $1
-else
-    URL=$1
-    getSSLcert
 fi
