@@ -19,7 +19,7 @@ getSSLcert() {
 	subject=`echo "$info" | grep subject | tr -d '*'| head -n 1`
 	issuer=`echo "$info" | grep issuer | tr -d '*'`
 	
-	if [ -f $1 ]; then
+	if [ -f $2 ]; then
 		if [[ $dates == *"dates"* ]]; then
         	if [[ ! -z "$2" ]]; then
             	echo $host
