@@ -10,7 +10,8 @@ if [ $# -lt 1 ]; then
 	exit
 fi
 getSSLcert() {
-	info=`curl -vIs -D - $URL 2>&1`
+	location=`curl -I -Ls -o /dev/null -w %{url_effective} $URL`
+	info=`curl -vIs -D - $location 2>&1`
 	host=`echo "$info" | grep Host | head -n 1 | tr -d '>'`
 	start=`echo "$info" | grep start | tr -d '*'`
 	expire=`echo "$info" | grep expire | head -n 1 | tr -d '*'` 
