@@ -26,4 +26,4 @@ echo $subject
 echo $issuer
 }
 
-$URL getSSLcert
+$1 getSSLcert
