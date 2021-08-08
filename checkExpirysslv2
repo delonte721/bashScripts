@@ -27,3 +27,4 @@ echo $subject
 echo $issuer
 }
 
+getSSLcert
