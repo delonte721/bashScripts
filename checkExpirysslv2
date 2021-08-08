@@ -23,16 +23,18 @@ getSSLcert() {
         if [[ ! -z "$1" ]]; then	
 			echo $host
 			echo $start
-			echo $expire	
+			echo $expire
+		else
+			echo $host
+			echo $start
+			echo $expire
+			echo $server_cert
+			echo $subject
+			echo $issuer
 		fi
 	fi
 
-	echo $host
-	echo $start
-	echo $expire
-	echo $server_cert
-	echo $subject
-	echo $issuer
+	
 }
 dates=$2
 if [ -f $1 ]; then
