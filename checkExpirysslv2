@@ -19,6 +19,15 @@ getSSLcert() {
 	subject=`echo "$info" | grep subject | tr -d '*'| head -n 1`
 	issuer=`echo "$info" | grep issuer | tr -d '*'`
 	
+	if [ -f $1 ]; then
+		echo $host
+		echo $start
+		echo $expire
+		echo $server_cert
+		echo $subject
+		echo $issuer
+	fi
+
 	if [[ $dates == *"dates"* ]]; then
         if [[ ! -z "$file" ]]; then
             echo $host
@@ -26,13 +35,6 @@ getSSLcert() {
 			echo $expire
 		fi
 	fi
-		
-	echo $host
-	echo $start
-	echo $expire
-	echo $server_cert
-	echo $subject
-	echo $issuer
 }
 dates=$2
 if [ -f $1 ]; then
