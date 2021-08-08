@@ -18,14 +18,13 @@ getSSLcert() {
 	server_cert=`echo "$info" | grep cert | tr -d '*' | tail -n 3`
 	subject=`echo "$info" | grep subject | tr -d '*'| head -n 1`
 	issuer=`echo "$info" | grep issuer | tr -d '*'`	
-	if [[ $2 -lt 1 ]]; then
 		echo $host
 		echo $start
 		echo $expire
 		echo $server_cert
 		echo $subject
 		echo $issuer
-	elif [[ $dates == *"dates"* ]]; then
+	if [[ $dates == *"dates"* ]]; then
         if [[ ! -z "$file" ]]; then	
 			echo $host
 			echo $start
@@ -38,8 +37,11 @@ if [ -f $1 ]; then
     file=$1
     while read URL; do
         echo "expiration for $URL"
-        echo $host
-		echo $start
-		echo $expire
+        getSSLcert
+        echo
+    done < $1
+else
+    URL=$1
+    getSSLcert
     done < $1
 fi
