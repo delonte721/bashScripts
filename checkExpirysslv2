@@ -33,7 +33,7 @@ getSSLcert() {
 		fi
 	fi
 }
-expire=$2
+dates=$2
 if [ -f $1 ]; then
     file=$1
     while read URL; do
