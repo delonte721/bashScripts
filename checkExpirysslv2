@@ -31,7 +31,7 @@ getSSLcert() {
 		echo $server_cert
 		echo $subject
 		echo $issuer
-	elif
+	else
 		if [[ $dates == *"dates"* ]]; then
        		if [[ ! -z "$URL" ]]; then	
 				echo $host
