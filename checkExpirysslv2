@@ -10,7 +10,6 @@ if [ $# -lt 1 ]; then
 	exit
 fi
 getSSLcert() {
-URL=$1
 info=`curl -vIs -D - $URL 2>&1`
 host=`echo "$info" | grep Host | head -n 1 | tr -d '>'`
 start=`echo "$info" | grep start | tr -d '*'`
@@ -27,4 +26,4 @@ echo $subject
 echo $issuer
 }
 
-URL getSSLcert
+$URL getSSLcert
