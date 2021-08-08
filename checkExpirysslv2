@@ -18,7 +18,7 @@ getSSLcert() {
 	server_cert=`echo "$info" | grep cert | tr -d '*' | tail -n 3`
 	subject=`echo "$info" | grep subject | tr -d '*'| head -n 1`
 	issuer=`echo "$info" | grep issuer | tr -d '*'`	
-	if [[ $2 -lt 1 ]]; then
+	if [[ $# -lt 1 ]]; then
 		echo $host
 		echo $start
 		echo $expire
