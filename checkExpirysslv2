@@ -20,13 +20,13 @@ getSSLcert() {
 	issuer=`echo "$info" | grep issuer | tr -d '*'`
 	
 	if [ -f $1 ]; then
-	if [[ $dates == *"dates"* ]]; then
-        if [[ ! -z "$1" ]]; then
-            echo $host
-			echo $start
-			echo $expire
-		fi
-	fi	
+		if [[ $dates == *"dates"* ]]; then
+        	if [[ ! -z "$1" ]]; then
+            	echo $host
+				echo $start
+				echo $expire
+			fi
+		fi	
 		echo $host
 		echo $start
 		echo $expire
