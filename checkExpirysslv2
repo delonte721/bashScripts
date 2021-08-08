@@ -30,7 +30,15 @@ getSSLcert() {
 		echo $expire
 		echo $server_cert
 		echo $subject
-		echo $issuer	
+		echo $issuer
+	elif
+		if [[ $dates == *"dates"* ]]; then
+       		if [[ ! -z "$URL" ]]; then	
+				echo $host
+				echo $start
+				echo $expire
+			fi
+		fi	
 	fi
 }
 dates=$2
