@@ -9,7 +9,7 @@ if [ $# -lt 1 ]; then
 	echo ""
 	exit
 fi
-getSSLcert() {
+
 URL=$1
 info=`curl -vIs -D - $URL 2>&1`
 host=`echo "$info" | grep Host | head -n 1 | tr -d '>'`
@@ -25,4 +25,3 @@ echo $expire
 echo $server_cert
 echo $subject
 echo $issuer
-}
