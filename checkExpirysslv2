@@ -9,7 +9,7 @@ if [ $# -lt 1 ]; then
 	echo ""
 	exit
 fi
-
+getSSLcert() {
 URL=$1
 info=`curl -vIs -D - $URL 2>&1`
 host=`echo "$info" | grep Host | head -n 1 | tr -d '>'`
@@ -25,3 +25,15 @@ echo $expire
 echo $server_cert
 echo $subject
 echo $issuer
+}
+if [ -f $1 ]; then
+    file=$1
+    while read URL; do
+        echo "expiration for $URL"
+        getSSLcert
+        echo
+    done < $1
+else
+    URL=$1
+    getSSLcert
+fi
