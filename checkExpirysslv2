@@ -38,7 +38,9 @@ if [ -f $1 ]; then
     file=$1
     while read URL; do
         echo "expiration for $URL"
-        getSSLcert
+        echo $host
+		echo $start
+		echo $expire
         echo
     done < $1
 else
