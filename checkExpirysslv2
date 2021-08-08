@@ -26,7 +26,13 @@ getSSLcert() {
 	echo $issuer	
 	
 	if [[ $dates == *"dates"* ]]; then
-        if [[ ! -z "$file" ]]; then	
+		echo $host /dev/null
+		echo $start /dev/null
+		echo $expire /dev/null
+		echo $server_cert /dev/null
+		echo $subject /dev/null 
+		echo $issuer /dev/null
+       	if [[ ! -z "$file" ]]; then	
 			echo $host
 			echo $start
 			echo $expire
