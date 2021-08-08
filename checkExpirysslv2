@@ -5,7 +5,7 @@ if [ $# -lt 1 ]; then
 	echo "This script will verify and show the URL's SSL cert information"
 	echo "--- Incorrect Syntax ----"
 	echo "Usage: $0 <URL>"
-	echo "Example: $0 https://constellix.com"
+	echo "Example: $0 constellix.com"
 	echo ""
 	exit
 fi
