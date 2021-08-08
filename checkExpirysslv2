@@ -31,13 +31,12 @@ getSSLcert() {
 		echo $server_cert
 		echo $subject
 		echo $issuer
-	else
-		if [[ $dates == *"dates"* ]]; then
-       		if [[ ! -z "$URL" ]]; then	
-				echo $host
-				echo $start
-				echo $expire
-			fi
+	fi
+	if [[ $dates == *"dates"* ]]; then
+       	if [[ ! -z "$URL" ]]; then	
+			echo $host
+			echo $start
+			echo $expire
 		fi	
 	fi
 }
