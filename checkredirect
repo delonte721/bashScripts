@@ -15,14 +15,14 @@ fi
 getRedirect() {
     curl=`curl -I $URL 2>/dev/null | head -n 1`
     redirect=`curl -I -Ls -o /dev/null -w %{url_effective} $URL`
-    location=`curl -I $redirect 2>/dev/null | head -n 1`
+    status=`curl -I $redirect 2>/dev/null | head -n 1`
     chain=`curl --head --silent --location --output /dev/null --write-out "It took %{num_redirects} redirect/redirects to get %{url_effective}\n" $URL`
     origin=`curl -I $URL 2>/dev/null | head -n 7 | grep -E Server`
     origin2=`curl -I $URL 2>/dev/null | head -n 9 | grep -E Server | sed 's/\s\+/\n/g'` 
     IP=`host $URL | awk '{print $4}' | sed -e 's/handled//g' | sed -e 's/address//g'`
     #grabbing the 301/302 redirect to know which curl to run if 301/302 run $location if its not run $curl 
     if  [[ `echo $curl | grep -E 301\|302` ]]; then 
-        echo $location
+        echo $status
     else 
         echo $curl
     fi
