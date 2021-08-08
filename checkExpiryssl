@@ -4,8 +4,12 @@ if [ $# -lt 1 ]; then
 	echo ""
 	echo "This script will verify and show the URL's SSL cert information"
 	echo "--- Incorrect Syntax ----"
-	echo "Usage: $0 <URL>"
-	echo "Example: $0 constellix.com"
+	echo "Single FQDN"
+    echo "Usage: checkExpiryssl <domain> / checkExpiryssl <domain> dates"
+    echo "Example: checkExpiryssl constellix.com"
+    echo "Example: checkExpiryssl constellix.com dates"
+	echo "File List of FQDNs"
+	echo "Usage: checkExpiryssl <file_name> / checkExpiryssl <file_name> dates"
 	echo ""
 	exit
 fi
