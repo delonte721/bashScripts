@@ -18,6 +18,13 @@ getSSLcert() {
 	server_cert=`echo "$info" | grep cert | tr -d '*' | tail -n 3`
 	subject=`echo "$info" | grep subject | tr -d '*'| head -n 1`
 	issuer=`echo "$info" | grep issuer | tr -d '*'`	
+
+		echo $host
+		echo $start
+		echo $expire
+		echo $server_cert
+		echo $subject
+		echo $issuer	
 	
 	if [[ $dates == *"dates"* ]]; then
         if [[ ! -z "$file" ]]; then	
