@@ -25,6 +25,7 @@ getSSLcert() {
 	echo $server_cert
 	echo $subject
 	echo $issuer
+	
 	if [[ $dates == *"dates"* ]]; then
         if [[ ! -z "$file" ]]; then
             echo $start
