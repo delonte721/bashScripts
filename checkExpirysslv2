@@ -21,4 +21,4 @@ issuer=`echo "$info" | grep issuer | tr -d '*'`
 
 }
 
-echo getSSLcert
+getSSLcert
