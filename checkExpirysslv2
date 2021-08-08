@@ -41,7 +41,6 @@ if [ -f $1 ]; then
         echo $host
 		echo $start
 		echo $expire
-        echo
     done < $1
 else
     URL=$1
