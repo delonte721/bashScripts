@@ -8,4 +8,4 @@ if [ $# -lt 1 ]; then
 	echo "Usage: dskey.sh <domain>"
 	echo ""
 	exit
-    
+fi
