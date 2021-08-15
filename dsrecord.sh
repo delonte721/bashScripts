@@ -3,7 +3,7 @@
 
 if [ $# -lt 1 ]; then
 	echo ""
-	echo "This script will show the DS record of a single FQDN"
+	echo "This script will show the DS record of a single FQDN and a list of FQDNs"
 	echo "--- Incorrect Syntax ----"
 	echo "Single FQDN"
     echo "Usage: dsrecord <domain> / dsrecord <domain> nospace"
