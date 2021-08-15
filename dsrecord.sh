@@ -1,5 +1,5 @@
 #!/bin/bash
-#checkdsrecord/key
+#checkdsrecord
 
 if [ $# -lt 1 ]; then
 	echo ""
