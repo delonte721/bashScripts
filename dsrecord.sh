@@ -11,8 +11,8 @@ if [ $# -lt 1 ]; then
     echo "Example: dsrecord constellix.com nospace"
 	echo "File List of FQDNs"
 	echo "Usage: dsrecord <file_name> / dsrecord <file_name>"
-	echo "Example: dsrecord testsslexpire.txt"
-	echo "Example: dsrecord testsslexpire.txt nospace"
+	echo "Example: dsrecord testgroupdomains.txt"
+	echo "Example: dsrecord testgroupdomains.txt nospace"
 	echo ""
 	exit
 fi
