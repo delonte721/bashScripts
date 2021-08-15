@@ -16,7 +16,7 @@ if [ $# -lt 1 ]; then
 	echo ""
 	exit
 fi
-FQDN= $1
 nameserver=`dig ns $1 @f.root-servers.net +trace +noanswer | grep $1 | grep 'IN\sNS' | awk '{print $5}' | sort | uniq | head -n 1`
-dsrecord=`dig +short @nameserver $1 in cds`
+#add a @symbol to the output figure it out
+dsrecord=`dig +short $nameserver $1 in cds`
 echo $dsrecord
