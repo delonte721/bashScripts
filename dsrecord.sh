@@ -16,8 +16,7 @@ if [ $# -lt 1 ]; then
 	echo ""
 	exit
 fi
-FQDN= $1
-tld=`echo $1 | awk -F '.' '{print $2}'`
+tld=`echo $FQDN | awk -F '.' '{print $2}'`
 nameserver=`host -t ns $tld | grep 'name server' | head -n 1 | awk '{print $4}'`
 dsrecord=`dig +short $nameserver $FQDN in cds`
 echo $dsrecord
