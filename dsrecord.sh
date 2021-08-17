@@ -8,7 +8,7 @@ if [ $# -lt 1 ]; then
 	echo "Single FQDN"
     echo "Usage: dsrecord <domain> / dsrecord <domain> nospace"
     echo "Example: dsrecord constellix.com"
-    echo "Example: dsrecord constellix.com nospace"
+    echo "Example: dsrecord.sh constellix.com nospace"
 	echo "File List of FQDNs"
 	echo "Usage: dsrecord <file_name> / dsrecord <file_name>"
 	echo "Example: dsrecord testgroupdomains.txt"
@@ -16,6 +16,8 @@ if [ $# -lt 1 ]; then
 	echo ""
 	exit
 fi
-nameserver=`dig ns $1 @f.root-servers.net +trace +noanswer | grep $1 | grep 'IN\sNS' | awk '{print $5}' | sort | uniq | grep dnsmadeeasy | awk '{print $1}'
-nameserver2="@${nameserver}"
-echo $nameserver
+nameserver1="@ns1.dnsmadeeasy.com"
+nameserver2="@ns10.dnsmadeeasy.com"
+dsrecord1=`dig +short $nameserver1 $1 in cds`
+dsrecord2=`dig +short $nameserver2 $1 in cds`
+keyID=`echo "$dsrecord2" | awk '{print $1}'`
