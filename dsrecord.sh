@@ -47,7 +47,7 @@ if [ -f $1 ]; then
 	digest_type2=`echo "$dsrecord_2" | awk '{print $3}'`
 	digest2=`echo "$dsrecord_2" | awk '{print $4}'`
 	digest22=`echo "$dsrecord_2" | awk '{print $5}'`	
-	if [[ $dsrecord_v2 ]]; then
+	if [[ $dsrecord_1 ]]; then
 		echo "KeyID:$keyID"
 		echo "Algorithm:$algorithm"
 		echo "Digest Type:$digest_type"
