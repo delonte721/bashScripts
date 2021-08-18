@@ -16,8 +16,13 @@ if [ $# -lt 1 ]; then
 	echo ""
 	exit
 fi
-nameserver1="@ns1.dnsmadeeasy.com"
-nameserver2="@ns10.dnsmadeeasy.com"
-dsrecord1=`dig +short $nameserver1 $1 in cds`
-dsrecord2=`dig +short $nameserver2 $1 in cds`
-keyID=`echo "$dsrecord2" | awk '{print $1}'`
+nameserver_1="@ns1.dnsmadeeasy.com"
+nameserver_2="@ns10.dnsmadeeasy.com"
+dsrecord_1=`dig +short $nameserver_1 $1 in cds`
+dsrecord_2=`dig +short $nameserver_2 $1 in cds`
+keyID=`echo "$dsrecord_2" | awk '{print $1}'`
+algorithm=`echo "$dsrecord_2" | awk '{print $2}'`
+digest_type=`echo "$dsrecord_2" | awk '{print $3}'`
+digest=`echo "$dsrecord_2" | awk '{print $4}'`
+digest_2=`echo "$dsrecord_2" | awk '{print $5}'`
+
