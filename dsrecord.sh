@@ -48,7 +48,7 @@ if [ -f $1 ]; then
 		echo "Digest:$digest2$digest22"
 		echo ""
 	fi 
-	done < $1
+	done < $filename
 else
 	echo "DNSSEC has been enabled for $1:"	
 	if [[ $dsrecord_1 ]]; then
