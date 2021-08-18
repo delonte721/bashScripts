@@ -32,14 +32,18 @@ digest2=`echo "$dsrecord_2" | awk '{print $4}'`
 digest22=`echo "$dsrecord_2" | awk '{print $5}'`
 
 echo "DNSSEC has been enabled for $1:"
-	if [[ $dsrecord_2 ]]; then
+if	
+	if [[ $dsrecord_1 ]]; then
+		echo "KeyID:$keyID"
+		echo "Algorithm:$algorithm"
+		echo "Digest Type:$digest_type"
+		echo "Digest:$digest$digest_2"
+		echo ""
+	else
 		echo "KeyID:$keyID2"
 		echo "Algorithm:$algorithm2"
 		echo "Digest Type:$digest_type2"
 		echo "Digest:$digest2$digest22"
-		echo ""
-	else
-		echo "None"
 		echo ""
 	fi
 fi
