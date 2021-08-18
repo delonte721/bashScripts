@@ -47,14 +47,3 @@ getDSrecord() {
 		echo ""
 	fi
 }
-if [ -f $1 ]; then
-    file=$1
-    while read FQDN; do
-        echo "DNSSEC has been enabled for $FQDN"
-		getDSrecord
-        echo
-    done < $1
-else
-    URL=$1
-    getDSrecord
-fi
