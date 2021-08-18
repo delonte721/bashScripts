@@ -31,7 +31,27 @@ digest_type2=`echo "$dsrecord_2" | awk '{print $3}'`
 digest2=`echo "$dsrecord_2" | awk '{print $4}'`
 digest22=`echo "$dsrecord_2" | awk '{print $5}'`
 
-echo "DNSSEC has been enabled for $1:"	
+if [ -f $1 ]; then
+	for x in `grep -v ^# $1 | awk '{print $1}'`; do
+		echo "DNSSEC has been enabled for $x:"
+		if [[ $dsrecord_1 ]]; then
+			echo ""
+			echo "KeyID:$keyID"
+			echo "Algorithm:$algorithm"
+			echo "Digest Type:$digest_type"
+			echo "Digest:$digest$digest_2"
+			echo ""
+		else
+			echo ""
+			echo "KeyID:$keyID2"
+			echo "Algorithm:$algorithm2"
+			echo "Digest Type:$digest_type2"
+			echo "Digest:$digest2$digest22"
+			echo ""
+		fi
+	done
+else
+	echo "DNSSEC has been enabled for $1:"	
 if [[ $dsrecord_1 ]]; then
 	echo "KeyID:$keyID"
 	echo "Algorithm:$algorithm"
