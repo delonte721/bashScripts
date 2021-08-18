@@ -34,7 +34,7 @@ if [ -f $1 ]; then
 	filename=$1
 	while read FQDN; do
 	# reading each line
-	echo "DNSSEC has been enabled for $x:"
+	echo "DNSSEC has been enabled for $1:"
 	if [[ $dsrecord_1 ]]; then
 		echo "KeyID:$keyID"
 		echo "Algorithm:$algorithm"
