@@ -6,13 +6,13 @@ if [ $# -lt 1 ]; then
 	echo "This script will show the DS record of a single FQDN and a list of FQDNs"
 	echo "--- Incorrect Syntax ----"
 	echo "Single FQDN"
-    echo "Usage: dsrecord <domain> / dsrecord <domain> nospace"
+    echo "Usage: dsrecord <FQDN> / dsrecord <FQDN>"
     echo "Example: dsrecord constellix.com"
-    echo "Example: dsrecord.sh constellix.com nospace"
+    echo "Example: dsrecord.sh constellix.com"
 	echo "File List of FQDNs"
 	echo "Usage: dsrecord <file_name> / dsrecord <file_name>"
 	echo "Example: dsrecord testgroupdomains.txt"
-	echo "Example: dsrecord testgroupdomains.txt nospace"
+	echo "Example: dsrecord testgroupdomains.txt"
 	echo ""
 	exit
 fi
