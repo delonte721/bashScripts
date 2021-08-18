@@ -37,11 +37,9 @@ if [[ $dsrecord_1 ]]; then
 	echo "Algorithm:$algorithm"
 	echo "Digest Type:$digest_type"
 	echo "Digest:$digest$digest_2"
-	echo ""
 else
 	echo "KeyID:$keyID2"
 	echo "Algorithm:$algorithm2"
 	echo "Digest Type:$digest_type2"
 	echo "Digest:$digest2$digest22"
-	echo ""
 fi
