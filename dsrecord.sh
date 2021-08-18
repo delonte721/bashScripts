@@ -35,6 +35,7 @@ if [ -f $1 ]; then
 	while read FQDN; do
 	# reading each line
 	echo "DNSSEC has been enabled for $FQDN:"
+	dsrecord_1=`dig +short $nameserver_1 $FQDN in cds`
 	if [[ $dsrecord_1 ]]; then
 		echo "KeyID:$keyID"
 		echo "Algorithm:$algorithm"
