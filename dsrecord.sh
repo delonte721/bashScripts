@@ -49,22 +49,6 @@ if [ -f $1 ]; then
 		echo ""
 	fi 
 	done < $1
-		echo "DNSSEC has been enabled for $x:"
-		dsrecord_1=`dig +short $nameserver_1 $x in cds`
-	if [[ $dsrecord_1 ]]; then
-		echo "KeyID:$keyID"
-		echo "Algorithm:$algorithm"
-		echo "Digest Type:$digest_type"
-		echo "Digest:$digest$digest_2"	
-		echo ""
-	else
-		echo "KeyID:$keyID2"
-		echo "Algorithm:$algorithm2"
-		echo "Digest Type:$digest_type2"
-		echo "Digest:$digest2$digest22"
-		echo ""
-	fi
-	done
 else
 	echo "DNSSEC has been enabled for $1:"	
 	if [[ $dsrecord_1 ]]; then
