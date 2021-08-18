@@ -35,18 +35,18 @@ if [ -f $1 ]; then
 	while read FQDN; do
 	# reading each line
 	echo "DNSSEC has been enabled for $FQDN:"
-	dsrecord_v2=`dig +short $nameserver_1 $FQDN in cds`
-	dsrecord_v22=`dig +short $nameserver_2 $FQDN in cds`
-	keyID=`echo "$dsrecord_v2" | awk '{print $1}'`
-	algorithm=`echo "$dsrecord_v2" | awk '{print $2}'`
-	digest_type=`echo "$dsrecord_v2" | awk '{print $3}'`
-	digest=`echo "$dsrecord_v2" | awk '{print $4}'`
-	digest_2=`echo "$dsrecord_v2" | awk '{print $5}'`
-	keyID2=`echo "$dsrecord_22" | awk '{print $1}'`
-	algorithm2=`echo "$dsrecord_22" | awk '{print $2}'`
-	digest_type2=`echo "$dsrecord_22" | awk '{print $3}'`
-	digest2=`echo "$dsrecord_22" | awk '{print $4}'`
-	digest22=`echo "$dsrecord_22" | awk '{print $5}'`	
+	dsrecord_1=`dig +short $nameserver_1 $FQDN in cds`
+	dsrecord_2=`dig +short $nameserver_2 $FQDN in cds`
+	keyID=`echo "$dsrecord_1" | awk '{print $1}'`
+	algorithm=`echo "$dsrecord_1" | awk '{print $2}'`
+	digest_type=`echo "$dsrecord_1" | awk '{print $3}'`
+	digest=`echo "$dsrecord_1" | awk '{print $4}'`
+	digest_2=`echo "$dsrecord_1" | awk '{print $5}'`
+	keyID2=`echo "$dsrecord_2" | awk '{print $1}'`
+	algorithm2=`echo "$dsrecord_2" | awk '{print $2}'`
+	digest_type2=`echo "$dsrecord_2" | awk '{print $3}'`
+	digest2=`echo "$dsrecord_2" | awk '{print $4}'`
+	digest22=`echo "$dsrecord_2" | awk '{print $5}'`	
 	if [[ $dsrecord_v2 ]]; then
 		echo "KeyID:$keyID"
 		echo "Algorithm:$algorithm"
