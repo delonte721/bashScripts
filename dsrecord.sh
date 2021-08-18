@@ -36,17 +36,7 @@ if [ -f $1 ]; then
 	# reading each line
 	echo "DNSSEC has been enabled for $FQDN:"
 	dsrecord_1=`dig +short $nameserver_1 $FQDN in cds`
-	dsrecord_2=`dig +short $nameserver_2 $FQDN in cds`
-	keyID=`echo "$dsrecord_1" | awk '{print $1}'`
-	algorithm=`echo "$dsrecord_1" | awk '{print $2}'`
-	digest_type=`echo "$dsrecord_1" | awk '{print $3}'`
-	digest=`echo "$dsrecord_1" | awk '{print $4}'`
-	digest_2=`echo "$dsrecord_1" | awk '{print $5}'`
-	keyID2=`echo "$dsrecord_2" | awk '{print $1}'`
-	algorithm2=`echo "$dsrecord_2" | awk '{print $2}'`
-	digest_type2=`echo "$dsrecord_2" | awk '{print $3}'`
-	digest2=`echo "$dsrecord_2" | awk '{print $4}'`
-	digest22=`echo "$dsrecord_2" | awk '{print $5}'`	
+	dsrecord_2=`dig +short $nameserver_2 $FQDN in cds`	
 	if [[ $dsrecord_1 ]]; then
 		echo "KeyID:$keyID"
 		echo "Algorithm:$algorithm"
