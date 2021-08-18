@@ -54,4 +54,7 @@ if [ -f $1 ]; then
 		getDSrecord
         echo
     done < $1
+else
+    URL=$1
+    getDSrecord
 fi
