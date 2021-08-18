@@ -50,14 +50,15 @@ if [ -f $1 ]; then
 	done
 else
 	echo "DNSSEC has been enabled for $1:"	
-if [[ $dsrecord_1 ]]; then
-	echo "KeyID:$keyID"
-	echo "Algorithm:$algorithm"
-	echo "Digest Type:$digest_type"
-	echo "Digest:$digest$digest_2"
-else
-	echo "KeyID:$keyID2"
-	echo "Algorithm:$algorithm2"
-	echo "Digest Type:$digest_type2"
-	echo "Digest:$digest2$digest22"
+	if [[ $dsrecord_1 ]]; then
+		echo "KeyID:$keyID"
+		echo "Algorithm:$algorithm"
+		echo "Digest Type:$digest_type"
+		echo "Digest:$digest$digest_2"
+	else
+		echo "KeyID:$keyID2"
+		echo "Algorithm:$algorithm2"
+		echo "Digest Type:$digest_type2"
+		echo "Digest:$digest2$digest22"
+	fi
 fi
